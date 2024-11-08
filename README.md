@@ -1,0 +1,1 @@
+# Rooted: A Learning platform for students and teachers, to learn about new technologies and share their knowledge with others.
