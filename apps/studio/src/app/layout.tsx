@@ -2,7 +2,6 @@ import { auth } from "@/auth";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { getUserById } from "@repo/db";
 
 const inter = Inter({ subsets: ["latin"] });
 
