@@ -41,10 +41,8 @@ export function useLessonForm(userId?: string) {
   
       const result = await createLesson(formattedData)
   
-      if ('id' in result) {
+      if (result) {
         form.reset()
-      } else {
-        setError('An error occurred while creating the lesson')
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred')
