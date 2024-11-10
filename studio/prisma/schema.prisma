@@ -84,54 +84,70 @@ model Category {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String?
-  slug        String
+  slug        String     @unique
   parentId    String?    @db.ObjectId
   parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   children    Category[] @relation("CategoryHierarchy")
-  lessons     Lesson[]
+  lessons     Lesson[]   @relation("LessonCategories", fields: [lessonIds], references: [id])
+  lessonIds   String[]   @db.ObjectId
+
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 
   @@index([parentId])
-  @@index([slug])
+  @@index([lessonIds])
 }
 
 model Tag {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  name      String    @unique
-  slug      String
-  lessons   Lesson[]  @relation(fields: [lessonIds], references: [id])
-  lessonIds String[]  @db.ObjectId
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  lessonTags  LessonTag[]
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
 
-  @@index([slug])
+model LessonTag {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lessonId  String   @db.ObjectId
+  tagId     String   @db.ObjectId
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([lessonId, tagId])
+  @@index([lessonId])
+  @@index([tagId])
 }
 
 model Lesson {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
   title       String
-  slug        String
+  slug        String       @unique
   description String
-  content     String       // Markdown or HTML content
+  content     String
   difficulty  Difficulty
   status      LessonStatus @default(DRAFT)
   publishedAt DateTime?
+  
+  categories  Category[]   @relation("LessonCategories", fields: [categoryIds], references: [id])
+  categoryIds String[]     @db.ObjectId
+  
+  lessonTags  LessonTag[]
+  
   exercises   Exercise[]
-  categoryId  String       @db.ObjectId
-  category    Category     @relation(fields: [categoryId], references: [id])
-  tags        Tag[]        @relation(fields: [tagIds], references: [id])
-  tagIds      String[]     @db.ObjectId
   createdById String       @db.ObjectId
   createdBy   User         @relation(fields: [createdById], references: [id])
   progress    Progress[]
   discussions Discussion[]
+  
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 
-  @@index([categoryId])
+  @@index([categoryIds])
   @@index([createdById])
-  @@index([slug])
   @@index([status])
 }
 

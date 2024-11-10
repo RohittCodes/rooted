@@ -33,6 +33,14 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -59,6 +67,14 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -69,4 +85,108 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.rc-md-editor {
+  border-color: hsl(var(--border));
+  background-color: hsl(var(--background));
+}
+
+.rc-md-editor .editor-container > .section {
+  border-right-color: hsl(var(--border));
+}
+
+.rc-md-editor .editor-container .sec-md .input {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.rc-md-editor .rc-md-navigation {
+  border-bottom-color: hsl(var(--border));
+  background-color: hsl(var(--secondary));
+}
+
+.rc-md-editor .rc-md-navigation .button-wrap .button {
+  color: hsl(var(--muted-foreground));
+}
+
+.rc-md-editor .rc-md-navigation .button-wrap .button:hover {
+  color: hsl(var(--foreground));
+}
+
+.rc-md-editor .rc-md-navigation .button-wrap .button.disabled {
+  color: hsl(var(--muted-foreground));
+}
+
+.custom-html-style {
+  color: hsl(var(--foreground));
+}
+
+.custom-html-style a {
+  color: hsl(var(--primary));
+}
+
+.custom-html-style hr {
+  border-top-color: hsl(var(--border));
+}
+
+.custom-html-style pre,
+.custom-html-style code {
+  background-color: hsl(var(--secondary));
+}
+
+.custom-html-style blockquote {
+  background-color: hsl(var(--secondary));
+  border-left-color: hsl(var(--primary));
+}
+
+.custom-html-style table {
+  border-color: hsl(var(--border));
+}
+
+.custom-html-style table tr {
+  border-color: hsl(var(--border));
+}
+
+.custom-html-style table th {
+  background-color: hsl(var(--secondary));
+  border-color: hsl(var(--border));
+}
+
+.custom-html-style table td {
+  border-color: hsl(var(--border));
+}
+
+.dark .rc-md-editor,
+.dark .rc-md-editor .editor-container > .section,
+.dark .rc-md-editor .rc-md-navigation,
+.dark .custom-html-style table,
+.dark .custom-html-style table tr,
+.dark .custom-html-style table th,
+.dark .custom-html-style table td {
+  border-color: hsl(var(--border));
+}
+
+.dark .rc-md-editor .editor-container .sec-md .input,
+.dark .custom-html-style {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.dark .rc-md-editor .rc-md-navigation {
+  background-color: hsl(var(--secondary));
+}
+
+.dark .custom-html-style pre,
+.dark .custom-html-style code {
+  background-color: hsl(var(--secondary));
+}
+
+.dark .custom-html-style blockquote {
+  background-color: hsl(var(--secondary));
+  border-left-color: hsl(var(--primary));
+}
+
+.dark .custom-html-style a {
+  color: hsl(var(--primary));
 }
