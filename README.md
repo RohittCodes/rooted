@@ -1,11 +1,4 @@
 # Rooted: A Technology learning platform for senior citizens
-[![HackThisFall](https://img.shields.io/badge/HachThisFall-00A550?labelColor=16202D&style=for-the-badge&link=https://hackthisfall.tech/)](https://hackthisfall.tech/)
-
-## Sponsor Tracks
-[![MongoDBAtlas](https://img.shields.io/badge/MongoDBAtlas-4EA94B?labelColor=16202D&style=for-the-badge&link=https://www.mongodb.com/)](https://www.mongodb.com/)
-[![GoogleForDevelopers](https://img.shields.io/badge/GoogleForDevelopers-4285F4?labelColor=16202D&style=for-the-badge&link=https://developers.google.com/)](https://developers.google.com/)
-[![Peerlist](https://img.shields.io/badge/Peerlist-00A550?labelColor=16202D&style=for-the-badge&link=https://peerlist.io/)](https://peerlist.io/)
-[![GitHubEducation](https://img.shields.io/badge/GitHubEducation-000000?labelColor=16202D&style=for-the-badge&link=https://education.github.com/)](https://education.github.com/)
 
 ## Introduction
 Rooted highlights the widening digital divide among the elderly, many of whom struggle to keep up with rapid technological improvements. As more vital services, communication tools, and entertainment options become available online, seniors may feel left behind, leading to isolation and missed opportunities. Rooted fills this gap by providing an easy-to-use platform with AI-powered, interactive courses that are personalized to their pace and learning style. Rooted helps elders acquire confidence in utilizing technology by delivering accessible, engaging material, so increasing their independence and quality of life in the digital era.
